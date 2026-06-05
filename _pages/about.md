@@ -9,8 +9,10 @@ redirect_from:
 
 ## About Me
 
-I am a **Ph.D. student (ECE)** at the **University of Maryland, College Park**, advised by Prof. [Zhambyl Shaikhanov](https://ece.umd.edu/clark/faculty/1858/Zhambyl-Shaikhanov) and Prof. [Sennur Ulukus](https://user.eng.umd.edu/~ulukus/).
+I am a **Ph.D. student (ECE)** at the **University of Maryland, College Park**, advised by Prof. [Zhambyl Shaikhanov](https://ece.umd.edu/clark/faculty/1858/Zhambyl-Shaikhanov).
+
 Before that, I received my **B.E. in Electrical and Electronics Engineering** from **Southern University of Science and Technology of China (SUSTech)**, where I worked with Prof. [Terry Tao Ye](https://faculty.sustech.edu.cn/yett/en/).
+
 I also spent a semester as an exchange student at **Nanyang Technological University (NTU)**, Singapore, and a summer as a research intern at the **University of Notre Dame**, working with Prof. [Patrick Fay](https://engineering.nd.edu/faculty/patrick-fay/).
 
 ---
