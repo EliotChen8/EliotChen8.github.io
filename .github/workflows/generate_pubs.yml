@@ -1,0 +1,41 @@
+name: Generate publications
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - "markdown_generator/*.bib"
+      - "markdown_generator/pubsFromBib.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install pybtex
+
+      # 可选：避免你改了标题/日期导致旧文件残留重复
+      - run: rm -f _publications/*.md
+
+      - run: python markdown_generator/pubsFromBib.py
+
+      - name: Commit changes
+        run: |
+          if git status --porcelain | grep -q .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add _publications
+            git commit -m "chore: auto-generate publications"
+            git push
+          else
+            echo "No changes."
+          fi

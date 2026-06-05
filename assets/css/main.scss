@@ -1,0 +1,110 @@
+---
+---
+
+/*
+ * This file controls what is imported from /_sass
+ *
+ * Note that the files are processed in the order they are imported, so they are partly
+ * sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@import
+  "vendor/breakpoint/breakpoint",
+
+  "themes",
+  "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
+  "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+
+  "include/mixins",
+  "vendor/susy/susy",
+
+  "layout/reset",
+  "layout/base",
+
+  "include/utilities",
+  "layout/tables",
+  "layout/buttons",
+  "layout/notices",
+  "layout/masthead",
+  "layout/navigation",
+  "layout/footer",
+  "syntax",
+
+  "layout/forms",
+
+  "layout/page",
+  "layout/archive",
+  "layout/sidebar",
+  "layout/json_cv",
+
+  "vendor/font-awesome/fontawesome",
+  "vendor/font-awesome/solid",
+  "vendor/font-awesome/brands";
+
+/* =========================
+   Custom overrides (global)
+   ========================= */
+
+/* Typography */
+html { font-size: 15px; }
+
+.page__content { font-size: 0.95em; line-height: 1.65; }
+.page__content h1 { font-size: 1.75em; }
+.page__content h2 { font-size: 1.32em; }
+.page__content h3 { font-size: 1.12em; }
+
+/* Force font family everywhere (including author sidebar) */
+body,
+.page__content,
+.sidebar,
+.archive,
+.masthead,
+.page__footer,
+.author__content,
+.author__bio,
+.author__urls,
+.nav__list {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+}
+
+h1,h2,h3,h4,h5,h6,
+.site-title,
+.page__title,
+.author__name {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 600;
+}
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace !important;
+}
+
+/* Force wider layout (CV + homepage) */
+.page__inner-wrap { max-width: 1500px !important; }
+
+/* Homepage uses layout--home; widen its main containers explicitly */
+.layout--home #main,
+.layout--home .initial-content,
+.layout--home .archive,
+.layout--home .page__inner-wrap {
+  max-width: 1500px !important;
+}
+
+/* Slightly reduce side padding on large screens */
+@media (min-width: 64em) {
+  .page__inner-wrap,
+  .layout--home #main,
+  .layout--home .initial-content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Selected pubs */
+.selected-pubs p { margin: 0 0 1.05rem; line-height: 1.55; }
+.selected-pubs strong { font-weight: 700; }
