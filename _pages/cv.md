@@ -23,31 +23,18 @@ redirect_from:
   GPA: 4.67/5.00 · Courses: Computer Networks (A+), Computer Organization (A-), Data Structures and Algorithms (A-)
 
 ## Publications
-
-<div class="selected-pubs">
-
-<p>
-<strong>MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless</strong><br>
-<strong>T. Chen</strong>, A.W. Nazar, S. Ulukus, Z. Shaikhanov.<br>
-ACM 27th HotMobile 2026, Atlanta, GA, USA.<br>
-DOI: <a href="https://doi.org/10.1145/3789514.3792045" target="_blank" rel="noopener">10.1145/3789514.3792045</a>
-</p>
-
-<p>
-<strong>Demo: MUFASA - Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless</strong><br>
-<strong>T. Chen</strong>, A.W. Nazar, S. Ulukus, Z. Shaikhanov.<br>
-ACM 27th HotMobile 2026, Atlanta, GA, USA.<br>
-DOI: <a href="https://doi.org/10.1145/3789514.3796246" target="_blank" rel="noopener">10.1145/3789514.3796246</a>
-</p>
-
-<p>
-<strong>ID-Yarn: Form-factoring an RFID Tag into a Yarn and How It Can Work Well</strong><br>
-<strong>T. Chen</strong>, Y. Liu, Z. Li, Y. Jiang, M. Yu, L. Xu, T.T. Ye.<br>
-IEEE 14th RFID-TA 2024, Daytona Beach, FL, USA.<br>
-DOI: <a href="https://doi.org/10.1109/RFID-TA64374.2024.10965149" target="_blank" rel="noopener">10.1109/RFID-TA64374.2024.10965149</a>
-</p>
-
-</div>
+- *Vision-Language-Action in Robotics: A Survey of Datasets, Benchmarks, and Data Engines*  
+  Z. Wang, B. Wang, H. Zhang, T. Du, **T. Chen**, G. Sun, Y. He, Z. Shen, W. Ye, A. Li.  
+  arXiv preprint arXiv:2604.23001, 2026. DOI: [10.48550/arXiv.2604.23001](https://doi.org/10.48550/arXiv.2604.23001)
+- *Demo: MUFASA - Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
+  **T. Chen**, A.W. Nazar, S. Ulukus, Z. Shaikhanov.  
+  ACM 27th HotMobile, Atlanta, GA, USA. DOI: [10.1145/3789514.3796246](https://doi.org/10.1145/3789514.3796246)
+- *MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
+  **T. Chen**, A.W. Nazar, S. Ulukus, Z. Shaikhanov.  
+  ACM 27th HotMobile, Atlanta, GA, USA. DOI: [10.1145/3789514.3792045](https://doi.org/10.1145/3789514.3792045)
+- *ID-Yarn: Form-factoring an RFID Tag into a Yarn and How It Can Work Well*  
+  **T. Chen**, Y. Liu, Z. Li, Y. Jiang, M. Yu, L. Xu, T.T. Ye.  
+  IEEE 14th RFID-TA, Daytona Beach, FL, USA. DOI: [10.1109/RFID-TA64374.2024.10965149](https://doi.org/10.1109/RFID-TA64374.2024.10965149)
 
 ## Research
 
