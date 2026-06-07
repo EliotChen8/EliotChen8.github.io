@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 
 **Email:** tychen [at] umd [dot] edu  
-**Google Scholar:** [link](https://scholar.google.com/citations?user=IKGtYE8AAAAJ&hl=en) · **GitHub:** [EliotChen8](https://github.com/EliotChen8) · **LinkedIn:** [link](https://www.linkedin.com/in/tianyang-chen-b506832b1/)  
+**Google Scholar:** [link](https://scholar.google.com/citations?user=IKGtYE8AAAAJ&hl=en) · **LinkedIn:** [link](https://www.linkedin.com/in/tianyang-chen-b506832b1/) · **GitHub:** [EliotChen8](https://github.com/EliotChen8) 
 **Updated:** {{ site.time | date: "%Y-%m-%d" }}
 
 ## Education
@@ -49,7 +49,7 @@ DOI: <a href="https://doi.org/10.1109/RFID-TA64374.2024.10965149" target="_blank
 
 </div>
 
-## Research Experience
+## Research
 
 - **Localized Flood Sensing and Alerting via Autonomous mm-Wave Radar** · University of Maryland College Park (Sep. 2025 – Present)  
   Advisors: Prof. Zhambyl Shaikhanov, Prof. Sennur Ulukus  
