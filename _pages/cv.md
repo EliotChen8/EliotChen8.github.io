@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 
 **Email:** tychen [at] umd [dot] edu  
-**Google Scholar:** [link](https://scholar.google.com/citations?user=IKGtYE8AAAAJ&hl=en) · **LinkedIn:** [link](https://www.linkedin.com/in/tianyang-chen-b506832b1/) · **GitHub:** [EliotChen8](https://github.com/EliotChen8) 
+**Google Scholar:** [link](https://scholar.google.com/citations?user=IKGtYE8AAAAJ&hl=en) · **LinkedIn:** [link](https://www.linkedin.com/in/tianyang-chen-b506832b1/) · **GitHub:** [EliotChen8](https://github.com/EliotChen8)  
 **Updated:** {{ site.time | date: "%Y-%m-%d" }}
 
 ## Education
