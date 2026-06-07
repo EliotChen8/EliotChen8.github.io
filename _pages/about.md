@@ -9,9 +9,7 @@ redirect_from:
 
 ## About Me
 
-I am a **Ph.D. student** at the **University of Maryland, College Park**, advised by Prof. [Zhambyl Shaikhanov](https://ece.umd.edu/clark/faculty/1858/Zhambyl-Shaikhanov).
-
-Before that, I received my **B.E. in Electrical and Electronics Engineering** from **Southern University of Science and Technology of China (SUSTC)**, where I worked with Prof. [Terry Tao Ye](https://faculty.sustech.edu.cn/yett/en/). I also spent a semester as an exchange student at **Nanyang Technological University (NTU)**, Singapore, and a summer as a research intern at the **University of Notre Dame**, working with Prof. [Patrick Fay](https://engineering.nd.edu/faculty/patrick-fay/).
+I am a **Ph.D. student** in Electrical and Computer Engineering at the **University of Maryland, College Park**, advised by Prof. [Zhambyl Shaikhanov](https://ece.umd.edu/clark/faculty/1858/Zhambyl-Shaikhanov). Before that, I received my **B.E. in Electrical and Electronics Engineering** from **Southern University of Science and Technology of China (SUSTC)**, where I worked with Prof. [Terry Tao Ye](https://sse.cuhk.edu.cn/en/faculty/terrytaoye). I also spent a semester as an exchange student at **Nanyang Technological University (NTU)**, Singapore, and a summer as a research intern at the **University of Notre Dame**, working with Prof. [Patrick Fay](https://engineering.nd.edu/faculty/patrick-fay/).
 
 ---
 
@@ -51,15 +49,15 @@ My research focuses on **mm-Wave to sub-THz wireless**, with an emphasis on enab
 ## Publications
 
 ### 2026
-- **[HotMobile]** *MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
+- *MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
   **T. Chen**, A.W. Nazar, S. Ulukus, Z. Shaikhanov.  
   ACM 27th HotMobile, Atlanta, GA, USA. DOI: [10.1145/3789514.3792045](https://doi.org/10.1145/3789514.3792045)
-- **[HotMobile Demo]** *Demo: MUFASA - Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
+- *Demo: MUFASA - Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
   **T. Chen**, A.W. Nazar, S. Ulukus, Z. Shaikhanov.  
   ACM 27th HotMobile, Atlanta, GA, USA. DOI: [10.1145/3789514.3796246](https://doi.org/10.1145/3789514.3796246)
 
 ### 2024
-- **[RFID-TA]** *ID-Yarn: Form-factoring an RFID Tag into a Yarn and How It Can Work Well*  
+- *ID-Yarn: Form-factoring an RFID Tag into a Yarn and How It Can Work Well*  
   **T. Chen**, Y. Liu, Z. Li, Y. Jiang, M. Yu, L. Xu, T.T. Ye.  
   IEEE 14th RFID-TA, Daytona Beach, FL, USA. DOI: [10.1109/RFID-TA64374.2024.10965149](https://doi.org/10.1109/RFID-TA64374.2024.10965149)
 
