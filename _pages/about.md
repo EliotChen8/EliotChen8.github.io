@@ -40,11 +40,11 @@ My research focuses on **mm-Wave to sub-THz wireless**, with an emphasis on enab
 
 ## Education
 
-- **University of Maryland, College Park**
+- **University of Maryland, College Park**  
   Ph.D. in Electrical and Computer Engineering (Aug. 2025 – Present)
-- **Southern University of Science and Technology of China**
+- **Southern University of Science and Technology of China**  
   B.E. in Electrical and Electronics Engineering (Aug. 2021 – Jul. 2025)
-- **Nanyang Technological University**
+- **Nanyang Technological University**  
   Exchange Student, EEE (Jan. 2024 – May 2024)
 
 ---
