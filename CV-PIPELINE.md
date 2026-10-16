@@ -122,7 +122,9 @@ Environment ends are matched with nesting depth for `cvlist` and `minipage`.
 | `\url{u}` | `<a href="u">u</a>` |
 | `{\LARGE x}` (any size command as first token of a group) | `<span class="cv-large">x</span>` (class = `cv-` + lowercased size name) |
 | other `{…}` groups | content only |
-| `\\`, `\\[len]` | `<br>` |
+| `\\` | `<br>` |
+| `\\[0.5em]` (positive em/ex/pt/mm/cm/in) | `<br>` plus a block spacer of that height (keeps LaTeX's extra vertical space) |
+| `\href{mailto:a@b.c}{…}` and any plain `a@b.c` in text | **not a link**; shown as `a [at] b [dot] c` (anti-scraping; the PDF keeps the real address) |
 | `` `` `` / `''` / `'` | “ / ” / ’ |
 | `---` / `--` / `~` | — / – / `&nbsp;` |
 | `\&` `\%` `\$` `\#` `\_` `\{` `\}` | literal char (`&` escaped) |
