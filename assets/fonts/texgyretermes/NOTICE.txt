@@ -1,0 +1,21 @@
+TeX Gyre Termes 2.004 — web font files for this site
+
+Source:   CTAN, fonts/tex-gyre/opentype/texgyretermes-{regular,bold,italic,bolditalic}.otf
+          https://ctan.org/pkg/tex-gyre-termes
+          (upstream: http://www.gust.org.pl/projects/e-foundry/tex-gyre/termes)
+Authors:  Bogusław Jackowski and Janusz M. Nowacki (TeX Gyre extensions,
+          on behalf of TeX Users Groups), based on URW Nimbus Roman No9 L.
+License:  GUST Font License (GUST-FONT-LICENSE.txt), an instance of the
+          LaTeX Project Public License 1.3c (https://www.latex-project.org/lppl.txt).
+
+Changes made for this site:
+  The four OpenType (.otf) files were repackaged as WOFF2 with fontTools.
+  This is a container conversion only. After decompressing, every font table
+  is byte-identical to the original OTF except two bookkeeping fields in the
+  'head' table (checkSumAdjustment, and flags bit 11, which the WOFF2
+  specification requires to be set). No glyphs, metrics or names were changed,
+  and no subsetting was done. Font names and the original file base names are
+  kept, as in the upstream distribution.
+
+The original README-TeX-Gyre-Termes.txt and MANIFEST-TeX-Gyre-Termes.txt are
+included unchanged.
