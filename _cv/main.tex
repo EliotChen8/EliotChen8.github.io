@@ -1,104 +1,267 @@
-% PLACEHOLDER GENERATED FROM THE PREVIOUS _pages/cv.md.
-% Replace this whole file with the real main.tex copied from Overleaf.
-% Only the cv macros defined below and the inline commands listed in CV-PIPELINE.md are understood by _cv/tex2html.py.
-\documentclass[10pt,letterpaper]{article}
-\usepackage[margin=0.8in]{geometry}
-\usepackage{times}
-\usepackage{xcolor}
+\documentclass[10pt, letterpaper]{article}
+
+% -----------------------------------------------
+% Packages
+% -----------------------------------------------
+\usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{xcolor}
 \usepackage{parskip}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{qrcode}
 \usepackage{comment}
-\usepackage{mdframed}
-\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+
+% -----------------------------------------------
+% Global format
+% -----------------------------------------------
+
+\usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
+
+\usepackage{times}
+
+\usepackage{setspace}
+\setstretch{1.25}
+
+\definecolor{sectionbg}{RGB}{220,220,220}
+\definecolor{sectionrule}{RGB}{80,80,80}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=black,
+    linkcolor=black
+}
+
 \pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
-\newcommand{\resumesection}[1]{%
-  \vspace{0.8em}%
-  \begin{mdframed}[hidealllines=true,backgroundcolor=gray!15,leftmargin=0pt,rightmargin=0pt,innerleftmargin=6pt,innertopmargin=2pt,innerbottommargin=2pt]
-    \textbf{\MakeUppercase{#1}}
-  \end{mdframed}\vspace{-0.4em}}
+% -----------------------------------------------
+% Section format
+% -----------------------------------------------
 
-\newcommand{\cventry}[5]{%
-  \noindent\textbf{#1}\hfill\textbf{#2}\\
-  \noindent\textit{#3}\hfill\textbf{#4}\par
-  #5\par\vspace{0.3em}}
+% Left-border + full-width gray background section
+\usepackage{mdframed}
+\mdfdefinestyle{sectionstyle}{
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linewidth=0.5em,
+  linecolor=black,
+  innerleftmargin=1em,
+  innerrightmargin=1em,
+  innertopmargin=0.75em,
+  innerbottommargin=0.75em,
+  backgroundcolor=sectionbg,
+}
 
-\newenvironment{cvlist}{\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=2pt,parsep=0pt]}{\end{itemize}}
+\newcommand{\resumesection}[1]{
+  \vspace{0.75em}
+  \begin{mdframed}[style=sectionstyle]
+    \textbf{#1}
+  \end{mdframed}
+  \vspace{0.75em}
+}
+
+\newcommand{\cventry}[5]{ 
+  \vspace{0em}
+    \textbf{#1}\hfill\textbf{#2}
+    \par
+    \textit{#3}\hfill\textbf{#4}
+    \par
+  #5
+  \vspace{0em}
+}
+
+\newenvironment{cvlist}{%
+  \vspace{0em}
+  \begin{itemize}[leftmargin=1em, itemsep=0em, topsep=0em, parsep=0em]}{
+  \end{itemize}
+  \vspace{0.5em}
+}
+
+% -----------------------------------------------
+% Contents
+% -----------------------------------------------
 
 \begin{document}
 
-{\centering
-{\LARGE \textbf{Tianyang Chen}}\\[4pt]
-Ph.D. Student, Electrical and Computer Engineering, University of Maryland, College Park\\
-Email: tychen [at] umd [dot] edu \textbar{} \href{https://scholar.google.com/citations?user=IKGtYE8AAAAJ&hl=en}{Google Scholar} \textbar{} \href{https://www.linkedin.com/in/tianyang-chen-b506832b1/}{LinkedIn} \textbar{} \href{https://github.com/EliotChen8}{GitHub}\par}
+% -----------------------------------------------
 
-\resumesection{Education}
+\begin{minipage}[t]{0.8\linewidth}
+  {\LARGE\textbf{Tianyang Chen}}
+  \\[0.5em]
+  1305 A.V. Williams, University of Maryland College Park 
+  \textbar{} \href{mailto:tychen@umd.edu}{tychen@umd.edu} 
+  % textbar{} \href{https://www.linkedin.com/in/tianyang-chen-b506832b1/}{LinkedIn}
+  \textbar{} \href{https://eliotchen8.github.io}{https://eliotchen8.github.io}
+  \\[0em]
+  \textbf{Interest:} mm-Wave to sub-THz Integrated Sensing and Communication
+  % Radio Frequency Identification (RFID)
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.2\linewidth}
+  \raggedleft
+  \vspace{-1.25em}
+  %\qrcode[height=5em]{https://www.linkedin.com/in/tianyang-chen-b506832b1/}
+  \qrcode[height=5em]{https://eliotchen8.github.io}
+\end{minipage}
 
-\cventry{University of Maryland, College Park}{Aug. 2025 -- Present}{Ph.D., Electrical and Computer Engineering}{GPA: 3.85/4.00}{%
-Courses: Advanced Digital Signal Processing (A), Convex Optimization (A-)}
+% -----------------------------------------------
 
-\cventry{Southern University of Science and Technology of China}{Aug. 2021 -- Jul. 2025}{B.E., Electrical and Electronics Engineering}{GPA: 3.78/4.00}{%
-Courses: Microwave Engineering (A+), Microprocessors and Microsystems (A+), Digital Circuits (A+)}
+\resumesection{EDUCATION}
 
-\cventry{Nanyang Technological University, Singapore}{Jan. 2024 -- May 2024}{Exchange, Electrical and Electronics Engineering}{GPA: 4.67/5.00}{%
-Courses: Computer Networks (A+), Computer Organization (A-), Data Structures and Algorithms (A-)}
+\cventry
+{University of Maryland College Park}
+{College Park, Maryland, USA}
+{Ph.D. Student in Electrical and Computer Engineering}
+{Aug. 2025 $\sim$ Present}
+{
+  \begin{cvlist}
+    \item 
+    \textbf{GPA:} 3.85/4.00; 
+    \textbf{Courses:} Advanced Digital Signal Processing, Convex Optimization.
+  \end{cvlist}
+}
 
-\resumesection{Publications}
+\cventry
+{Southern University of Science and Technology of China}
+{Shenzhen, Guangdong, China}
+{Bachelor of Engineering in Electrical and Electronics Engineering with Outstanding Graduate Award}
+{Aug. 2021 $\sim$ Jul. 2025}
+{
+  \begin{cvlist}
+    \item 
+    \textbf{GPA:} 3.78/4.00; 
+    \textbf{Courses:} Microwave Engineering, Microprocessors and Microsystems, Digital Circuits.
+  \end{cvlist}
+}
+
+\cventry
+{Nanyang Technological University}
+{Singapore}
+{Undergraduate Semester Exchange in Electrical and Electronics Engineering}
+{Jan. 2024 $\sim$ May. 2024}
+{
+  \begin{cvlist}
+    \item 
+    \textbf{GPA:} 4.67/5.00; 
+    \textbf{Courses:} Computer Networks, Computer Organization, Data Structures and Algorithms.
+  \end{cvlist}
+}
+
+% -----------------------------------------------
+
+\resumesection{PUBLICATIONS}
 
 \begin{cvlist}
-\item \textit{Vision-Language-Action in Robotics: A Survey of Datasets, Benchmarks, and Data Engines}\\
-Z. Wang, B. Wang, H. Zhang, T. Du, \textbf{T. Chen}, G. Sun, Y. He, Z. Shen, W. Ye, A. Li.\\
-arXiv preprint arXiv:2604.23001, 2026. DOI: \href{https://doi.org/10.48550/arXiv.2604.23001}{10.48550/arXiv.2604.23001}
-\item \textit{Demo: MUFASA -- Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless}\\
-\textbf{T. Chen}, A.W. Nazar, S. Ulukus, Z. Shaikhanov.\\
-ACM 27th HotMobile, Atlanta, GA, USA. DOI: \href{https://doi.org/10.1145/3789514.3796246}{10.1145/3789514.3796246}
-\item \textit{MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless}\\
-\textbf{T. Chen}, A.W. Nazar, S. Ulukus, Z. Shaikhanov.\\
-ACM 27th HotMobile, Atlanta, GA, USA. DOI: \href{https://doi.org/10.1145/3789514.3792045}{10.1145/3789514.3792045}
-\item \textit{ID-Yarn: Form-factoring an RFID Tag into a Yarn and How It Can Work Well}\\
-\textbf{T. Chen}, Y. Liu, Z. Li, Y. Jiang, M. Yu, L. Xu, T.T. Ye.\\
-IEEE 14th RFID-TA, Daytona Beach, FL, USA. DOI: \href{https://doi.org/10.1109/RFID-TA64374.2024.10965149}{10.1109/RFID-TA64374.2024.10965149}
+
+  \item 
+  \textbf{T. Chen}, A.W. Nazar, S. Ulukus, and Z. Shaikhanov, 
+  \textbf{``Demo: MUFASA - Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless,''} 
+  ACM 27th HotMobile '26, 
+  Atlanta, GA, USA, 2026. 
+  DOI: 10.1145/3789514.3796246
+
+  \item 
+  \textbf{T. Chen}, A.W. Nazar, S. Ulukus, and Z. Shaikhanov, 
+  \textbf{``MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless,''} 
+  ACM 27th HotMobile '26, 
+  Atlanta, GA, USA, 2026. 
+  DOI: 10.1145/3789514.3792045
+
+  \item 
+  \textbf{T. Chen}, Y. Liu, Z. Li, Y. Jiang, M. Yu, L. Xu, and T.T. Ye, 
+  \textbf{``ID-Yarn: Form-factoring an RFID Tag into a Yarn and How It Can Work Well,''} 
+  IEEE 14th RFID-TA '24, 
+  Daytona Beach, FL, USA, 2024. 
+  DOI: 10.1109/RFID-TA64374.2024.10965149
+    
 \end{cvlist}
 
-\resumesection{Research}
+% -----------------------------------------------
 
-\cventry{Localized Flood Sensing and Alerting via Autonomous mm-Wave Radar}{Sep. 2025 -- Present}{University of Maryland, College Park}{}{%
-Advisors: Prof. Zhambyl Shaikhanov, Prof. Sennur Ulukus
+\resumesection{RESEARCH}
 
-Repurposing ubiquitous automotive hardware for flash-flood sensing and last-mile alerting.}
+\cventry
+{Localized Flood Sensing and Alerting via Autonomous mm-Wave Radar}
+{University of Maryland College Park}
+{Advisors: Prof. Zhambyl Shaikhanov, Prof. Sennur Ulukus}
+{Sep. 2025 $\sim$ Present}
+{
+  \begin{cvlist}
+    \item Repurposing ubiquitous automotive radar for flash-flood sensing and last-mile alerting.
+    \item Enabled downward sensing lobes on forward-only TI AWR radars and implemented sub-mm water surface motion tracking.
+  \end{cvlist}
+}
 
-\cventry{RFID Enhanced Surface Acoustic Wave (SAW) Wireless}{Oct. 2023 -- May 2025}{Southern University of Science and Technology of China}{}{%
-Advisor: Prof. Terry Tao Ye
+\begin{comment}
+\cventry
+{RFID Enhanced Surface Acoustic Wave (SAW) Wireless}
+{Southern University of Science and Technology of China}
+{Advisor: Prof. Terry Tao Ye}
+{Oct. 2023 $\sim$ May. 2025}
+{
+  \begin{cvlist}
+    \item Integrating RFID protocols with SAW sensing to address the challenge of multi-backscatter identifications.
+  \end{cvlist}
+}
+\end{comment}
 
-Integrating RFID protocols with SAW sensing to address the challenge of multi-backscatter identifications.}
+\cventry
+{Characterization and Modeling of GaN HEMTs for RF System Design}
+{University of Notre Dame}
+{Advisor: Prof. Patrick Fay}
+{Jul. 2024 $\sim$ Sep. 2024}
+{
+  \begin{cvlist}
+    \item Utilizing Angelov Model for RF device characterization to bridge the gap between fabrication and wireless system design.
+    \item Characterized emerging GaN HEMTs via mm-wave probe stations and developed Angelov models based on IC-CAP.
+  \end{cvlist}
+}
 
-\cventry{Characterization and Modeling of GaN HEMTs for RF System Design}{Jul. 2024 -- Sep. 2024}{University of Notre Dame}{}{%
-Advisor: Prof. Patrick Fay
+\cventry
+{Integrating RFID in Yarns as Wearable Tags}
+{Southern University of Science and Technology of China}
+{Advisor: Prof. Terry Tao Ye}
+{Jan. 2024 $\sim$ May. 2024}
+{
+  \begin{cvlist}
+    \item Seamlessly integrating RFID chips with textiles to enable ubiquitous wireless communication and sensing.
+    \item Micro-soldered RFID chips onto conductive fibers and optimized the wearable tags in HFSS and COMSOL.
+  \end{cvlist}
+}
 
-Utilizing Angelov Model for RF device characterization to bridge the gap between fabrication and wireless system design.}
+% -----------------------------------------------
 
-\cventry{Integrating RFID in Yarns as Wearable Tags}{Jan. 2024 -- May 2024}{Southern University of Science and Technology of China}{}{%
-Advisor: Prof. Terry Tao Ye
+% \resumesection{HONOR, SERVICE \& SKILLS}
+\resumesection{ADDITIONAL INFORMATION}
 
-Seamlessly integrating RFID chips with textiles to enable ubiquitous wireless communication and sensing.}
-
-\resumesection{Awards}
-
+\textbf{Awards}
 \begin{cvlist}
-\item Dean's Fellowship in Electrical and Computer Engineering, University of Maryland, College Park (Aug. 2025)
-\item Excellent Undergraduate Graduate, Southern University of Science and Technology of China (Jul. 2025)
-\item Outstanding Student Scholarship, Southern University of Science and Technology of China (Oct. 2024 \& 2023)
-\item International Exchange Scholarship, Southern University of Science and Technology of China (Jul. \& Jan. 2024)
-\item National Undergraduate Electronic Design Contest, Guangdong, China (Aug. 2023)
-\item Freshmen Merit Scholarship, Southern University of Science and Technology of China (Aug. 2021)
+    \item ACM HotMobile Student Travel Grant, International Workshop on Mobile Computing Systems and Applications. (Feb. 2026).
+    \item Dean's Fellowship in Electrical and Computer Engineering, University of Maryland College Park. (Aug. 2025).
+    % \item Excellent Undergraduate Graduate, Southern University of Science and Technology of China. (Jul. 2025).
+    \item Outstanding Student Scholarship, Southern University of Science and Technology of China. (Oct. 2024 \& 2023).
+    %\item International Exchange Scholarship.  Southern University of Science and Technology of China. (Jul. \& Jan. 2024).
+    \item Texas Instruments Cup National Undergraduate Electronic Design Contest, Guangdong, China. (Aug. 2023).
+    %\item Freshmen Merit Scholarship, Southern University of Science and Technology of China. (Aug. 2021).
 \end{cvlist}
 
-\resumesection{Service}
+\textbf{Reviewer}: IEEE INFOCOM '27, IEEE S\&P '27, IEEE MILCOM Workshop '26, IEEE MeditCom '26, WiSense '26.
 
-\textbf{Reviewer}
-\begin{cvlist}
-\item \textbf{MeditCom 2026}: IEEE International Mediterranean Conference on Communications and Networking
-\item \textbf{WiSense 2026}: International Workshop on Pervasive Wireless Sensing and Edge Computing
+
+\begin{comment}
+\textbf{Skills}
+ \begin{cvlist}
+    \item Demo
 \end{cvlist}
+\end{comment}
+
+% -----------------------------------------------
 
 \end{document}
