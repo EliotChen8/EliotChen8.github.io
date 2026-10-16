@@ -1,0 +1,11 @@
+#!/bin/sh
+# Blocks a commit when _cv/main.tex (as staged) contains any term listed in
+# .cv-blocklist — including inside comments, because the .tex file is public.
+# Install once per clone:   git config core.hooksPath .githooks
+[ -f .cv-blocklist ] || exit 0
+git diff --cached --name-only --diff-filter=ACM | grep -qx '_cv/main.tex' || exit 0
+
+tmp=$(mktemp) || exit 1
+trap 'rm -f "$tmp"' EXIT
+git show :_cv/main.tex > "$tmp"                    # the staged version, not the working copy
+python3 _cv/tex2html.py "$tmp" --check --blocklist .cv-blocklist

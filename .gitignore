@@ -18,3 +18,8 @@ package-lock.json
 
 # Ignore folders related to IDEs
 .vscode/
+
+# CV pipeline: generated files and private blocklist
+_includes/cv-body.html
+files/TianyangChen_CV.pdf
+.cv-blocklist
