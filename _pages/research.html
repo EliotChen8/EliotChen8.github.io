@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap" style="margin-bottom:1.25rem;">Full list on <a href="{{site.author.googlescholar}}">Google Scholar</a>.</div>
+  <div class="wordwrap">Full list on <a href="{{site.author.googlescholar}}">Google Scholar</a>.</div>
 {% endif %}
 
 {% comment %}
@@ -16,8 +16,6 @@ redirect_from:
   - 图片: post.teaser / post.header.teaser / post.thumbnail / post.image
   - 作者: post.authors (string 或 array)，或 post.author (string)
 {% endcomment %}
-{% assign pubs = site.publications | sort: "date" | reverse %}
-{% for post in pubs %}
 {% assign teaser = post.teaser | default: post.header.teaser | default: post.thumbnail | default: post.image %}
 
 <article class="archive__item" style="margin-bottom:1.25rem;">
@@ -37,6 +35,7 @@ redirect_from:
       {% assign authors_html = "" %}
       {% if post.authors %}
         {% if post.authors.first or post.authors.size %}
+          {# authors 是数组 #}
           {% assign parts = "" | split: "" %}
           {% for a in post.authors %}
             {% if a.name %}
@@ -47,6 +46,7 @@ redirect_from:
           {% endfor %}
           {% assign authors_html = parts | join: ", " %}
         {% else %}
+          {# authors 是字符串 #}
           {% assign authors_html = post.authors | markdownify | strip_newlines | replace: '<p>','' | replace: '</p>','' %}
         {% endif %}
       {% elsif post.author %}
@@ -75,4 +75,4 @@ redirect_from:
     </div>
   </div>
 </article>
-{% endfor %}
+
