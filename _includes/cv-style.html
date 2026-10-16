@@ -1,0 +1,39 @@
+<style>
+/* CV page styles — scoped to .cv-tex, inherits the site's font and colors */
+.cv-tex { line-height: 1.5; }
+.cv-tex .cv-header { margin-bottom: 1.5em; }
+.cv-tex .cv-header p { margin: 0; }
+.cv-tex .cv-large { font-size: 1.6em; line-height: 1.3; }
+
+.cv-tex .cv-section { margin-top: 1.75em; }
+.cv-tex .cv-section > h2 {
+  font-size: 1em;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.9em;
+  padding: 0.35em 0 0.35em 0.75em;
+  border-left: 0.3em solid currentColor;
+  border-bottom: none;
+  background: rgba(127, 127, 127, 0.12);
+}
+.cv-tex .cv-section > p { margin: 0.6em 0 0.2em; }
+
+.cv-tex .cv-entry { margin-bottom: 1em; }
+.cv-tex .cv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.cv-tex .cv-row > :last-child { text-align: right; flex-shrink: 0; }
+.cv-tex .cv-sub { font-size: 0.95em; }
+
+.cv-tex .cv-list { margin: 0.25em 0 0; padding-left: 1.2em; }
+.cv-tex .cv-list li { margin: 0.2em 0; }
+
+.cv-download { margin: 0 0 1.5em; }
+
+@media (max-width: 600px) {
+  .cv-tex .cv-row { flex-direction: column; gap: 0; }
+  .cv-tex .cv-row > :last-child { text-align: left; flex-shrink: 1; font-weight: normal; opacity: 0.8; }
+}
+</style>

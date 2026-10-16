@@ -1,0 +1,57 @@
+# Builds the whole site: compiles _cv/main.tex to PDF, converts it to HTML,
+# then builds Jekyll and deploys to GitHub Pages.
+# One-time setup: repo Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+# No secrets are used.
+name: Build and deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile CV PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: _cv
+          root_file: main.tex
+
+      - name: Convert CV to HTML
+        run: |
+          python3 _cv/tex2html.py _cv/main.tex -o _includes/cv-body.html
+          mkdir -p files
+          cp _cv/main.pdf files/TianyangChen_CV.pdf
+
+      - uses: actions/configure-pages@v5
+
+      - name: Build Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
