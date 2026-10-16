@@ -163,6 +163,8 @@ include:
   - _pages
   - files
 exclude:
+  - CV-PIPELINE.md
+  - _cv
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
