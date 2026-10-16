@@ -75,13 +75,33 @@ html body.layout--home .masthead__inner-wrap {
   padding-right: var(--container-pad) !important;
 }
 
-/* Sidebar spacing from left edge */
-.sidebar.sticky {
-  padding-left: 24px !important;   /* 想更远就加大，比如 24px */
-  padding-right: 10px !important;
+/* 侧栏离左边缘留一点距离，头像稍微内缩。只在桌面端（侧栏在左侧，≥ 925px）生效，
+   否则手机上侧栏会比正文多缩进 24px，和正文对不齐 */
+@media (min-width: 925px) {
+  .sidebar.sticky {
+    padding-left: 24px !important;   /* 想更远就加大，比如 24px */
+    padding-right: 10px !important;
+  }
+
+  /* Optional: avatar itself a bit inset */
+  .author__avatar {
+    margin-left: 6px !important;
+  }
 }
 
-/* Optional: avatar itself a bit inset */
-.author__avatar {
-  margin-left: 6px !important;
+/* 手机和平板（< 925px）：主题用 table-cell 排这一行，宽度只按内容收缩，
+   Contact 按钮到不了右边缘。改成 flex 让这一行撑满正文宽度，头像放大到 64px；
+   其余（字号、Contact 按钮和下拉菜单的样式）沿用主题 */
+@media (max-width: 924.98px) {
+  .sidebar [itemscope] {
+    display: flex;
+    align-items: center;
+  }
+  .sidebar div.author__avatar {
+    flex: 0 0 64px;
+    width: 64px;
+  }
+  .sidebar .author__urls-wrapper {
+    margin-left: auto;
+  }
 }
