@@ -39,8 +39,25 @@ MATH = {r"\sim": "\u223c", r"\cdot": "\u00b7", r"\times": "\u00d7",
         r"\pm": "\u00b1", r"\approx": "\u2248", r"\geq": "\u2265", r"\leq": "\u2264"}
 
 
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
+GAP_RE = re.compile(r"\s*(\d*\.?\d+)\s*(em|ex|pt|mm|cm|in)\s*$")
+
+
 class TexError(Exception):
     pass
+
+
+def obfuscate_email(addr):
+    """tychen@umd.edu -> 'tychen [at] umd [dot] edu' (anti-scraping, plain text)."""
+    local, host = addr.split("@", 1)
+    return f"{local} [at] {host.replace('.', ' [dot] ')}"
+
+
+def obfuscate_text(rendered):
+    """Obfuscate e-mail addresses in the text nodes of rendered HTML (never in tags)."""
+    parts = re.split(r"(<[^>]*>)", rendered)
+    return "".join(p if p.startswith("<") else EMAIL_RE.sub(lambda m: obfuscate_email(m.group(0)), p)
+                   for p in parts)
 
 
 # ---------------------------------------------------------------- preprocessing
@@ -163,8 +180,10 @@ def inline(text):
         elif c == "\\":
             if p.peek(2) == "\\\\":            # line break \\ or \\[len]
                 p.i += 2
-                p.read_optional()
+                gap = GAP_RE.match(p.read_optional() or "")
                 out.append("<br>")
+                if gap and float(gap.group(1)) > 0:   # keep LaTeX's extra vertical space
+                    out.append(f'<span class="cv-vgap" style="height:{gap.group(1)}{gap.group(2)}"></span>')
                 continue
             name = p.read_cmd_name()
             if name in SYMBOLS:
@@ -182,7 +201,13 @@ def inline(text):
             elif name == "href":
                 url = p.read_group()
                 label = inline(p.read_group())
-                out.append(f'<a href="{html.escape(url, quote=True)}">{label}</a>')
+                if url.lower().startswith("mailto:"):
+                    # never publish a clickable/scrapable address: show it as 'name [at] host [dot] tld'
+                    addr = obfuscate_email(url[7:].strip())
+                    out.append(addr if label in ("", addr)  # label is already obfuscated by inline()
+                               else f"{label} ({addr})")
+                else:
+                    out.append(f'<a href="{html.escape(url, quote=True)}">{label}</a>')
             elif name == "url":
                 url = p.read_group()
                 out.append(f'<a href="{html.escape(url, quote=True)}">{html.escape(url)}</a>')
@@ -196,7 +221,7 @@ def inline(text):
             out.append(html.escape(c)); p.i += 1
         else:
             out.append(c); p.i += 1
-    return re.sub(r"\s+", " ", "".join(out)).strip()
+    return obfuscate_text(re.sub(r"\s+", " ", "".join(out)).strip())
 
 
 def math(expr):
