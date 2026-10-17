@@ -20,8 +20,6 @@ My research focuses on **mm-Wave to sub-THz wireless**, with an emphasis on enab
 - **mm-Wave / sub-THz Wireless Sensing**
   - **HotMobile 2026:** *MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
     **T. Chen**, A.W. Nazar, S. Ulukus, Z. Shaikhanov.
-  - **HotMobile 2026 (Demo):** *Demo: MUFASA - Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
-    **T. Chen**, A.W. Nazar, S. Ulukus, Z. Shaikhanov.
 
 - **RFID and Backscatter Wireless**
   - **RFID-TA 2024:** *ID-Yarn: Form-factoring an RFID Tag into a Yarn and How It Can Work Well*  
