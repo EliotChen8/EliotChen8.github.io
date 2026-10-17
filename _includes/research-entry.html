@@ -1,0 +1,84 @@
+{% comment %}
+  Research 页的单篇论文条目，由 _pages/research.html 调用：{% include research-entry.html pub=post %}
+  条目顺序：标题 → 作者、会议 → 一句话 key idea → 媒体和图注 → 链接
+  （问题 → 谁回答的 → 回答了什么 → 怎么回答的 → 详情）
+
+  _publications/*.md 里可用的字段（除 title / venue / date / authors 外都可省略，省略即不显示）：
+    paperurl  : 论文链接，显示为 [Paper]
+    summary   : 一句话 key idea；不填时用 excerpt
+    also      : 附在会议后面的一句说明，例如 "also presented as a demo"
+    links     : 其余链接，按顺序显示在 [Paper] 后面
+                - { label: "Demo", url: "..." }
+    bibtex    : 多行 BibTeX，显示为可在原处展开的 [BibTeX]
+    research  : 设为 false 时不在 Research 页列出（例如已并入主论文条目的 demo）
+    media:
+      src     : 图片或视频路径，.mp4 / .webm 按视频处理。一律与正文同宽、按 16:9 显示；
+                素材最好就做成 16:9，否则会完整缩进框内，四周留白（视频留黑）。
+                图片导出为 1600×900 的 WebP（桌面端显示约 690px 宽，够 2 倍高分屏用），放在 images/pubs/
+      poster  : 视频封面图（视频必填，否则开始播放前是空白框）
+      caption : 图注
+      alt     : 替代文本；不填时用图注
+{% endcomment %}
+{% assign pub = include.pub %}
+{% assign media = pub.media %}
+{% assign src_ext = media.src | split: "." | last | downcase %}
+{% if src_ext == "mp4" or src_ext == "webm" %}{% assign is_video = true %}{% else %}{% assign is_video = false %}{% endif %}
+
+{% if pub.authors.first %}{% assign authors = pub.authors | join: ", " %}{% else %}{% assign authors = pub.authors | default: pub.author %}{% endif %}
+{% capture me %}<strong>{{ site.author.name }}</strong>{% endcapture %}
+{% assign authors = authors | replace: site.author.name, me %}
+{% assign summary = pub.summary | default: pub.excerpt | strip_html | strip %}
+
+<article class="pub" id="{{ pub.slug }}">
+  <h3 class="pub__title">{{ pub.title }}</h3>
+
+  <p class="pub__byline">
+    {% if authors %}{{ authors }}<br>{% endif %}
+    <em>{{ pub.venue }}</em>{% if pub.also %} · {{ pub.also }}{% endif %}
+  </p>
+
+  {% if summary != "" %}<p class="pub__summary">{{ summary }}</p>{% endif %}
+
+  {% if media.src %}
+  <figure class="pub__media">
+    {% if is_video %}
+    {% comment %}
+      controls 只是没有 JS 时的退路：assets/js/research-video.js 加载后会去掉系统控制条，
+      换成一个播放/暂停按钮（复用侧栏 Contact 的 btn btn--inverse 样式）
+    {% endcomment %}
+    <div class="pub__frame pub__frame--video">
+      <video src="{{ media.src | relative_url }}"
+             {% if media.poster %}poster="{{ media.poster | relative_url }}"{% endif %}
+             controls muted loop playsinline preload="none" disablepictureinpicture
+             aria-label="{{ media.alt | default: media.caption | default: pub.title | escape }}"></video>
+      <button type="button" class="btn btn--inverse pub__play" hidden>
+        <i class="fas fa-play" aria-hidden="true"></i> <span>Play</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="pub__frame">
+      <img src="{{ media.src | relative_url }}"
+           alt="{{ media.alt | default: media.caption | default: pub.title | escape }}"
+           loading="lazy" decoding="async">
+    </div>
+    {% endif %}
+
+    {% if media.caption %}
+    <figcaption>{{ media.caption | markdownify | remove: "<p>" | remove: "</p>" | strip }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+
+  {% if pub.paperurl or pub.links or pub.bibtex %}
+  <div class="pub__links">
+    {% if pub.paperurl %}<span class="pub__bracket">[<a href="{{ pub.paperurl }}">Paper</a>]</span>{% endif %}
+    {% for link in pub.links %}<span class="pub__bracket">[<a href="{{ link.url | relative_url }}">{{ link.label }}</a>]</span>{% endfor %}
+    {% if pub.bibtex %}
+    <details class="pub__bibtex">
+      <summary><span class="pub__bracket">[<span class="pub__toggle">BibTeX</span>]</span></summary>
+      <pre>{{ pub.bibtex | strip | escape }}</pre>
+    </details>
+    {% endif %}
+  </div>
+  {% endif %}
+</article>

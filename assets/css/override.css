@@ -105,3 +105,156 @@ html body.layout--home .masthead__inner-wrap {
     margin-left: auto;
   }
 }
+
+/* ===== Research 页：论文条目（_includes/research-entry.html） =====
+   正文和媒体共用同一个版心宽度 --pub-measure，图片、视频的左右边缘与文字对齐。
+   作者、会议、key idea、图注、链接用同一字号、同一颜色，只靠正体 / 粗体 / 斜体区分；
+   只有标题更大一号。只有方括号链接、BibTeX 折叠和视频的播放/暂停按钮可以交互 */
+.research {
+  --pub-measure: 46em;
+  /* 年份、页首说明用的次要色：正文色和背景色按比例混合，浅色、深色主题下都可读
+     （主题的 --global-base-color 在深色模式下等于背景色，不能用） */
+  --pub-muted: color-mix(in srgb, var(--global-text-color) 68%, var(--global-bg-color));
+}
+
+.research__note {
+  max-width: var(--pub-measure);
+  margin: 0 0 0.5em;
+  color: var(--pub-muted);
+}
+
+.research__year {
+  max-width: var(--pub-measure);
+  margin: 2em 0 1.25em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--global-dark-border-color);
+  font-size: 1em;
+  letter-spacing: 0.06em;
+  color: var(--pub-muted);
+}
+
+.pub {
+  max-width: var(--pub-measure);
+  margin: 0 0 1.75em;
+  padding-bottom: 1.75em;
+  border-bottom: 1px solid var(--global-border-color);
+  line-height: 1.55;
+}
+
+.pub:last-child,
+.pub:has(+ .research__year) {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pub__title {
+  margin: 0 0 0.35em;
+  font-size: 1.15em;
+  line-height: 1.3;
+}
+
+.pub__byline,
+.pub__summary {
+  margin: 0 0 0.75em;
+}
+
+/* 媒体：外框贴着版心边缘，与文字左右对齐，所有媒体统一 16:9。主题把 figure 设成 flex 容器，
+   外框会按内容收缩、懒加载的图片加载前是 0 宽，所以改回块级。
+   素材不是 16:9 时完整缩放进框内（contain），不裁切，多出的部分留底色：
+   图片是白底（深色模式下也保持白底，因为论文图都是按白底画的），视频是黑底。不另加白边：素材自己要留好边距 */
+.pub__media {
+  display: block;
+  margin: 0 0 0.75em;
+}
+
+.pub__frame {
+  position: relative;
+  box-sizing: border-box;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--global-border-color);
+  background: #fff;
+  line-height: 0;
+}
+
+.pub__frame--video {
+  background: #000;
+}
+
+.pub__frame img,
+.pub__frame video {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 播放/暂停按钮：样式完全来自主题的 .btn.btn--inverse，这里只负责摆到画面右下角 */
+.pub__play {
+  position: absolute;
+  right: 0.75em;
+  bottom: 0.75em;
+  margin: 0;
+  line-height: normal;
+}
+
+.pub__play[hidden] {
+  display: none;
+}
+
+.pub__media figcaption {
+  margin: 0.5em 0 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+/* 主题给图注里的链接换了颜色、去掉下划线；改回和链接行一样 */
+.pub__media figcaption a {
+  color: var(--global-link-color);
+  text-decoration: underline;
+  border-bottom: 0;
+}
+
+/* 链接行：方括号里只有文字是链接 */
+.pub__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2em 0.9em;
+}
+
+.pub__bracket {
+  white-space: nowrap;
+}
+
+.pub__bibtex summary {
+  display: inline;
+  list-style: none;
+  cursor: pointer;
+}
+
+.pub__bibtex summary::-webkit-details-marker {
+  display: none;
+}
+
+.pub__toggle {
+  color: var(--global-link-color);
+}
+
+.pub__bibtex[open] {
+  flex-basis: 100%;
+}
+
+.pub__bibtex pre {
+  margin: 0.5em 0 0;
+  padding: 0.75em 1em;
+  overflow-x: auto;
+  font-size: 0.75em;
+  line-height: 1.5;
+  white-space: pre;
+  background: var(--global-code-background-color);
+  border: 1px solid var(--global-border-color);
+}

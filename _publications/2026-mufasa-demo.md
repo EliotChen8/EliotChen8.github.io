@@ -8,5 +8,6 @@ date: 2026-02-01
 venue: 'ACM 27th HotMobile 2026'
 authors: "Tianyang Chen, A.W. Nazar, S. Ulukus, Z. Shaikhanov"
 paperurl: 'https://doi.org/10.1145/3789514.3796246'
+research: false   # 已并入 2026-mufasa 条目，Research 页不单独列出
 ---
 Demo of MUFASA: a mm-wave radar system for autonomous flood sensing and alerting.
