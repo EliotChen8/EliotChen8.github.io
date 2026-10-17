@@ -38,8 +38,14 @@
 .cv-tex .cv-row > :last-child { text-align: right; flex-shrink: 0; }
 .cv-tex .cv-sub { font-size: 0.95em; }
 
-.cv-tex .cv-list { margin: 0.25em 0 0; padding-left: 1.2em; list-style: disc outside; }
-.cv-tex .cv-list li { margin: 0.2em 0; list-style: disc outside; }
+/* Bullets: the PDF's \textbullet is a small dot (0.28em across, centre 0.35em above the baseline,
+   ink ending 0.58em before the text, text indented 1em). The browser-drawn list-style disc is bigger
+   (0.33em), lower and further from the text, so draw the body font's U+2022 instead: in TeX Gyre
+   Termes it is 0.27em across with its centre 0.33em up, and left: -0.87em puts its ink 0.58em
+   before the text. */
+.cv-tex .cv-list { margin: 0.25em 0 0; padding-left: 1em; list-style: none; }
+.cv-tex .cv-list li { margin: 0.2em 0; list-style: none; position: relative; }
+.cv-tex .cv-list li::before { content: "\2022"; content: "\2022" / ""; position: absolute; left: -0.87em; }
 
 .cv-download { margin: 0 0 1.5em; }
 
