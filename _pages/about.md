@@ -18,7 +18,7 @@ I am a **Ph.D. student** in Electrical and Computer Engineering at the **Univers
 My research focuses on **mm-Wave to sub-THz wireless**, with an emphasis on enabling new sensing and communication capabilities with ubiquitous RF hardware.
 
 - **mm-Wave / sub-THz Wireless Sensing**
-  - **HotMobile 2026:** *MUFASA: Localized Flood Sensing and Alerting via Autonomous Millimeter-wave Wireless*  
+  - **HotMobile 2026:** *MUFASA: Localized Flood Sensing and Alerting via Auto mm-Wave Wireless*  
     **T. Chen**, A.W. Nazar, S. Ulukus, Z. Shaikhanov.
 
 - **RFID and Backscatter Wireless**
